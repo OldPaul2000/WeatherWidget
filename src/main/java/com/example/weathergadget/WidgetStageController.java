@@ -59,7 +59,7 @@ public class WidgetStageController {
     public Label humidity = new Label();
 
 
-    private Path localPath = FileSystems.getDefault().getPath("").toAbsolutePath();
+    public static Path localPath = FileSystems.getDefault().getPath("").toAbsolutePath();
 
     private WeatherInfo weatherInfoInstance = WeatherInfo.getWeatherInfoInstance();
 
@@ -191,7 +191,9 @@ public class WidgetStageController {
     private void setCloseButtonProperties(){
         closeButton.setOnMouseClicked(mouseEvent -> {
             if(mouseEvent.getButton().toString().equals("PRIMARY")){
+                processData.interrupt();
                 Platform.exit();
+                window.close();
             }
         });
     }
@@ -200,7 +202,7 @@ public class WidgetStageController {
         Insets insets = new Insets(0,0,0,-1);
         closeButton.setPadding(insets);
         closeButton.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
-        Image closeIconImage = new Image(localPath + File.separator + "src" + File.separator + "CloseIcon.png");
+        Image closeIconImage = new Image(localPath + File.separator + "CloseIcon.png");
         ImageView buttonXSign = new ImageView(closeIconImage);
         buttonXSign.setFitHeight(8);
         buttonXSign.setFitWidth(8);
@@ -236,7 +238,7 @@ public class WidgetStageController {
         Insets insets = new Insets(0,0,0,-1);
         moveWindowButton.setPadding(insets);
         moveWindowButton.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
-        Image moveIconImage = new Image(localPath + File.separator + "src" + File.separator + "MoveIcon.png");
+        Image moveIconImage = new Image(localPath + File.separator + "MoveIcon.png");
         ImageView buttonMoveSign = new ImageView(moveIconImage);
         buttonMoveSign.setFitHeight(8);
         buttonMoveSign.setFitWidth(8);
@@ -263,7 +265,7 @@ public class WidgetStageController {
         Insets insets = new Insets(0,0,0,0);
         minimizeButton.setPadding(insets);
         minimizeButton.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT,null,null)));
-        Image closeIconImage = new Image(localPath + File.separator + "src" + File.separator + "MinimizeIcon.png");
+        Image closeIconImage = new Image(localPath + File.separator + "MinimizeIcon.png");
         ImageView buttonMinimizeSign = new ImageView(closeIconImage);
         buttonMinimizeSign.setFitHeight(8);
         buttonMinimizeSign.setFitWidth(8);

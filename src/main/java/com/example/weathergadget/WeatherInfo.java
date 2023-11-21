@@ -81,9 +81,7 @@ public class WeatherInfo {
 
         temperature = webPageText.replaceAll(".*\\d{1,2}:\\d{1,2} (-?\\d+°)C.*","$1");
 
-        realFeelTemperature = webPageText.replaceFirst("RealFeel Shade™ (.*)","");
-        realFeelTemperature = realFeelTemperature.replaceFirst(".* RealFeel® (.*) \\w*","$1");
-        realFeelTemperature = realFeelTemperature.replaceAll("(-?\\d+°) .*","$1");
+        realFeelTemperature = webPageText.split("RealFeel®")[1].trim().replaceAll("(-?\\d+°) .*","$1");
 
         weatherCondition = webPageText.replaceAll(".*°C (.*) RealFeel","$1");
         weatherCondition = weatherCondition.replaceFirst("\\sRealFeel.*","");
