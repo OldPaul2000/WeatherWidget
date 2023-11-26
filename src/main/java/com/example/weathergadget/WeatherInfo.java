@@ -74,10 +74,11 @@ public class WeatherInfo {
         for(Element element : elements){
             webPageText = element.text();
         }
+        System.out.println(webPageText);
 
         currentHour = webPageText.replaceAll(".* Vremea curentă (\\d{1,2}:\\d{1,2}).*","$1");
 
-        place = webPageText.replaceAll("Înapoi (.*) \\d+°C.*","$1").replaceAll("(.*) \\d+°C.*","$1");
+        place = webPageText.replaceAll("Înapoi (.*) -?\\d+°C.*","$1").replaceAll("(.*) -?\\d+°C.*","$1");
 
         temperature = webPageText.replaceAll(".*\\d{1,2}:\\d{1,2} (-?\\d+°)C.*","$1");
 

@@ -65,6 +65,9 @@ public class WidgetStageController {
 
     private Thread processData;
 
+    private final String NO_CONNECTION_MESSAGE = "No connection";
+    private final String COMIC_SANS_MS_FONT = "Comic Sans MS";
+
     public void initialize(){
         try{
             weatherInfoInstance.connectToMainPage();
@@ -145,7 +148,7 @@ public class WidgetStageController {
         temperature.setText("");
         realFeelTemperature.setText("");
         weatherCondition.setText("");
-        humidity.setText("No connection");
+        humidity.setText(NO_CONNECTION_MESSAGE);
     }
 
     private void initializeWindowPosition(){
@@ -191,9 +194,7 @@ public class WidgetStageController {
     private void setCloseButtonProperties(){
         closeButton.setOnMouseClicked(mouseEvent -> {
             if(mouseEvent.getButton().toString().equals("PRIMARY")){
-                processData.interrupt();
-                Platform.exit();
-                window.close();
+                System.exit(0);
             }
         });
     }
@@ -275,12 +276,12 @@ public class WidgetStageController {
 
 
     private void setLabelsFontStyle(){
-        currentHour.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,13));
-        place.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,12));
-        temperature.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,12));
-        realFeelTemperature.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,12));
-        weatherCondition.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,12));
-        humidity.setFont(Font.font("Comic Sans MS", FontWeight.BOLD,12));
+        currentHour.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,13));
+        place.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,12));
+        temperature.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,12));
+        realFeelTemperature.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,12));
+        weatherCondition.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,12));
+        humidity.setFont(Font.font(COMIC_SANS_MS_FONT, FontWeight.BOLD,12));
     }
     
     private void setBackgroundStyle(){
