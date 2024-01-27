@@ -59,7 +59,7 @@ public class WidgetStageController {
     public Label humidity = new Label();
 
 
-    public static Path localPath = FileSystems.getDefault().getPath("").toAbsolutePath();
+    public static Path localPath = FileSystems.getDefault().getPath("C:\\Users\\paulb\\IntellijProjects\\WeatherGadget\\src").toAbsolutePath();
 
     private WeatherInfo weatherInfoInstance = WeatherInfo.getWeatherInfoInstance();
 
