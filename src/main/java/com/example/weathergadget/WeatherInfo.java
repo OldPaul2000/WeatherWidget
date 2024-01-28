@@ -58,7 +58,7 @@ public class WeatherInfo {
                 if(link.contains("current-weather")){
                     mainLink = link;
                     replaceMainLinkLanguage();
-                    System.out.println("Main link:" + mainLink);
+                    break;
                 }
             }
         }
@@ -74,9 +74,7 @@ public class WeatherInfo {
 
         for(Element element : elements){
             webPageText = element.text();
-            System.out.println(webPageText);
         }
-
 
         currentHour = webPageText.replaceAll(".* Vremea curentă (\\d{1,2}:\\d{1,2}).*","$1");
 
